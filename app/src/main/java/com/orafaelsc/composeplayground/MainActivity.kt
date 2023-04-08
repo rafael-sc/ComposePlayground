@@ -3,6 +3,7 @@ package com.orafaelsc.composeplayground
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -46,20 +47,28 @@ class MainActivity : ComponentActivity() {
             verticalArrangement = Arrangement.Center
         ) {
             Greeting(name = "Playground")
+            HomeTextButton { Toast.makeText(context, "Toasted", Toast.LENGTH_SHORT).show() }
         }
     }
-}
 
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
+    @Composable
+    fun Greeting(name: String) {
+        Text(text = "Hello $name!")
+    }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ComposePlaygroundTheme {
-        Greeting("Android")
+    @Composable
+    fun HomeTextButton(onclick: () -> Unit) {
+        Button(onClick = onclick) {
+            Text(text = "Click to toast")
+        }
+    }
+
+    @Preview(showBackground = true)
+    @Composable
+    fun DefaultPreview() {
+        ComposePlaygroundTheme {
+            Greeting("Android")
+        }
     }
 }
