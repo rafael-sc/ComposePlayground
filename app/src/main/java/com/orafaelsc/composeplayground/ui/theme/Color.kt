@@ -1,11 +1,20 @@
 package com.orafaelsc.composeplayground.ui.theme
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Colors
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.orafaelsc.composeplayground.R
 
 val lightColors: Colors
@@ -66,3 +75,54 @@ val darkExtendedColors: ExtendedColors
     get() = ExtendedColors(
         companyAlert = colorResource(id = R.color.dark_company_alert)
     )
+
+
+@Preview
+@Composable
+fun LightColorsPreview() {
+    ComposePlaygroundTheme(darkTheme = false) {
+        ColorList()
+    }
+}
+
+@Preview
+@Composable
+fun DarkColorsPreview() {
+    ComposePlaygroundTheme(darkTheme = true) {
+        ColorList()
+    }
+}
+
+@Composable
+fun ColorList() {
+    Column(
+        modifier = Modifier
+            .verticalScroll(
+                state = rememberScrollState()
+            )
+            .fillMaxHeight()
+    ) {
+        mapOf(
+            "primary" to MaterialTheme.colors.primary,
+            "primaryVariant" to MaterialTheme.colors.primaryVariant,
+            "onPrimary" to MaterialTheme.colors.onPrimary,
+            "secondary" to MaterialTheme.colors.secondary,
+            "secondaryVariant" to MaterialTheme.colors.secondaryVariant,
+            "onSecondary" to MaterialTheme.colors.onSecondary,
+            "background" to MaterialTheme.colors.background,
+            "onBackground" to MaterialTheme.colors.onBackground,
+            "surface" to MaterialTheme.colors.surface,
+            "error " to MaterialTheme.colors.error,
+            "onError" to MaterialTheme.colors.onError,
+            "onSurface" to MaterialTheme.colors.onSurface,
+        ).forEach { (text, color) ->
+            Row {
+                Text(text = text, modifier = Modifier
+                    .weight(2f)
+                    .background(color)
+                    .height(60.dp)
+                )
+            }
+        }
+    }
+}
