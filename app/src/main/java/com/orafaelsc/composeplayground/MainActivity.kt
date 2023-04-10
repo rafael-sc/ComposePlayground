@@ -9,8 +9,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.*
-import androidx.compose.runtime.Composable
+import androidx.compose.material.Scaffold
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,11 +25,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposePlaygroundTheme {
-                val scaffoldState =
-                    rememberScaffoldState(rememberDrawerState(initialValue = DrawerValue.Closed))
+                val scaffoldState = rememberScaffoldState()
                 Scaffold(
                     scaffoldState = scaffoldState,
-                    topBar = { TopAppBar(title = { Text("home") }) },
+                    topBar = {
+                        TopAppBar(
+                            title = { Text("home") },
+                            backgroundColor = MaterialTheme.colorScheme.onSecondary
+
+                        )
+                    },
                     content = { HomeScreen(context = this) },
                     drawerContent = { Text("Config") },
                     bottomBar = {
