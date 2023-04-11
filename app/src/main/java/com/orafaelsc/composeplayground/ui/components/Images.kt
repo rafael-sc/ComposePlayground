@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,8 +24,8 @@ import com.orafaelsc.composeplayground.ui.theme.ComposePlaygroundTheme
 @Composable
 fun AppIconImage(
     @DrawableRes iconLightId: Int,
-    iconColor: Color = MaterialTheme.colors.primary,
-    backgroundColor: Color = MaterialTheme.colors.background,
+    iconColor: Color = MaterialTheme.colorScheme.primary,
+    backgroundColor: Color = MaterialTheme.colorScheme.background,
     onClick: () -> Unit = {},
     contentDescription: String? = null
 ) {
