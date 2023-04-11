@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ComposePlayground</string>
+    <string name="compose_playground">Compose Playground</string>
+    <string name="welcome_message">Welcome to the playground</string>
 </resources>
