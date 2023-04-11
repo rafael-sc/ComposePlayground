@@ -49,7 +49,7 @@ fun ComposePlaygroundTheme(
     }
 }
 
-object ComposePlaygroundTheme {
+object ComposePlaygroundThemeExtended {
 
     val typographyCustom: AppCustomTypography
         @Composable
@@ -120,14 +120,14 @@ fun ColorList() {
             "outline" to MaterialTheme.colorScheme.outline,
 
             // custom extented colors
-            "companyBlue" to ComposePlaygroundTheme.colorsCustom.companyBlue,
-            "companyREd" to ComposePlaygroundTheme.colorsCustom.companyRed,
+            "companyBlue" to ComposePlaygroundThemeExtended.colorsCustom.companyBlue,
+            "companyREd" to ComposePlaygroundThemeExtended.colorsCustom.companyRed,
 
             ).forEach { (text, color) ->
             Row {
                 Text(
                     text = text,
-                    color = ComposePlaygroundTheme.colorsCustom.companyBlue,
+                    color = ComposePlaygroundThemeExtended.colorsCustom.companyBlue,
                     modifier = Modifier
                         .weight(1f)
                 )
