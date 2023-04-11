@@ -28,10 +28,10 @@ fun AppButton(
 fun AppButtonRow(
     modifier: Modifier,
     positiveAction: (() -> Unit)? = null,
-    negativeAction: (() -> Unit)? = null,
-    neutralAction: (() -> Unit)? = null,
     @StringRes positiveTextId: Int? = null,
+    negativeAction: (() -> Unit)? = null,
     @StringRes negativeTextId: Int? = null,
+    neutralAction: (() -> Unit)? = null,
     @StringRes neutralTextId: Int? = null,
 ) {
     Row(
@@ -74,7 +74,7 @@ fun LightButtonPreview() {
 
 @Preview
 @Composable
-fun DarkButtonPreview() {
+private fun DarkButtonPreview() {
     ComposePlaygroundTheme(useDarkTheme = true) {
         AppButton(
             modifier = Modifier.widthIn(min = 100.dp, max = 120.dp),
@@ -86,7 +86,7 @@ fun DarkButtonPreview() {
 
 @Preview
 @Composable
-fun RowLightPreview() {
+private fun RowLightPreview() {
     ComposePlaygroundTheme(useDarkTheme = false) {
         AppButtonRow(
             modifier = Modifier.widthIn(min = 100.dp, max = 120.dp),
@@ -102,7 +102,7 @@ fun RowLightPreview() {
 
 @Preview
 @Composable
-fun RowDarkPreview() {
+private fun RowDarkPreview() {
     ComposePlaygroundTheme(useDarkTheme = true) {
         AppButtonRow(
             modifier = Modifier.widthIn(min = 100.dp, max = 120.dp),

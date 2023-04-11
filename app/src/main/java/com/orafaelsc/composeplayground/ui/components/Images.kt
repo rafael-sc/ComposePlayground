@@ -50,7 +50,7 @@ fun AppIconImage(
 
 @Preview
 @Composable
-fun IconImageLightPreview() {
+private fun IconImageLightPreview() {
     ComposePlaygroundTheme(useDarkTheme = false) {
         AppIconImage(
             R.drawable.ic_airplane_mode,
@@ -60,7 +60,7 @@ fun IconImageLightPreview() {
 
 @Preview
 @Composable
-fun IconImageDarkPreview() {
+private fun IconImageDarkPreview() {
     ComposePlaygroundTheme(useDarkTheme = true) {
         AppIconImage(
             R.drawable.ic_airplane_mode,

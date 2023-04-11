@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.orafaelsc.composeplayground.ui.theme.ComposePlaygroundTheme
+import com.orafaelsc.composeplayground.ui.view.WelcomeView
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -49,14 +50,15 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun HomeScreen(context: Context) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            Greeting(name = "Playground")
-            HomeTextButton { Toast.makeText(context, "Toasted", Toast.LENGTH_SHORT).show() }
-        }
+        WelcomeView(context = context)
+//        Column(
+//            modifier = Modifier.fillMaxSize(),
+//            horizontalAlignment = Alignment.CenterHorizontally,
+//            verticalArrangement = Arrangement.Center
+//        ) {
+//            Greeting(name = "Playground")
+//            HomeTextButton { Toast.makeText(context, "Toasted", Toast.LENGTH_SHORT).show() }
+//        }
     }
 
 
