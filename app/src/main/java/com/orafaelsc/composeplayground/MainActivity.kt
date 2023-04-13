@@ -18,7 +18,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.orafaelsc.composeplayground.ui.theme.ComposePlaygroundTheme
+import com.orafaelsc.composeplayground.ui.view.LoadingView
 import com.orafaelsc.composeplayground.ui.view.WelcomeView
+import com.orafaelsc.composeplayground.ui.viewmodel.ObserveStateViewModel
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -50,7 +52,8 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun HomeScreen(context: Context) {
-        WelcomeView(context = context)
+        LoadingView(viewModel = ObserveStateViewModel())
+//        WelcomeView(context = context)
 //        Column(
 //            modifier = Modifier.fillMaxSize(),
 //            horizontalAlignment = Alignment.CenterHorizontally,
