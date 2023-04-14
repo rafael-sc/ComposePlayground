@@ -3,23 +3,15 @@ package com.orafaelsc.composeplayground
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Scaffold
-import androidx.compose.material.TopAppBar
-import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.orafaelsc.composeplayground.navigation.RootNavigationGraph
 import com.orafaelsc.composeplayground.ui.theme.ComposePlaygroundTheme
 import com.orafaelsc.composeplayground.ui.view.LoadingView
-import com.orafaelsc.composeplayground.ui.view.WelcomeView
 import com.orafaelsc.composeplayground.ui.viewmodel.ObserveStateViewModel
 
 class MainActivity : ComponentActivity() {
@@ -27,26 +19,35 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposePlaygroundTheme {
-                val scaffoldState = rememberScaffoldState()
-                Scaffold(
-                    scaffoldState = scaffoldState,
-                    topBar = {
-                        TopAppBar(
-                            title = { Text("home") },
-                            backgroundColor = MaterialTheme.colorScheme.onSecondary
+            ComplexNavigationGraph()
+//            ComposePlaygroundTheme {
+//                val scaffoldState = rememberScaffoldState()
+//                Scaffold(
+//                    scaffoldState = scaffoldState,
+//                    topBar = {
+//                        TopAppBar(
+//                            title = { Text("home") },
+//                            backgroundColor = MaterialTheme.colorScheme.onSecondary
+//
+//                        )
+//                    },
+//                    content = { HomeScreen(context = this) },
+//                    drawerContent = { Text("Config") },
+//                    bottomBar = {
+//                        BottomAppBar() {
+//                            Text("navigation bar")
+//                        }
+//                    }
+//                )
+//            }
+        }
+    }
 
-                        )
-                    },
-                    content = { HomeScreen(context = this) },
-                    drawerContent = { Text("Config") },
-                    bottomBar = {
-                        BottomAppBar() {
-                            Text("navigation bar")
-                        }
-                    }
-                )
-            }
+
+    @Composable
+    private fun ComplexNavigationGraph(){
+        ComposePlaygroundTheme {
+            RootNavigationGraph(navController = rememberNavController())
         }
     }
 
