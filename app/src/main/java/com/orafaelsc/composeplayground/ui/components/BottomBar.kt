@@ -25,19 +25,19 @@ sealed class BottomBarItemConfig(
     val icon: ImageVector
 ) {
     object Home : BottomBarItemConfig(
-        route = AppGraph.home.HOME,
+        route = AppGraph.home.TO_HOME,
         title = R.string.home,
         icon = Icons.Default.Home
     )
 
     object Profile : BottomBarItemConfig(
-        route = AppGraph.home.PROFILE,
+        route = AppGraph.home.TO_PROFILE,
         title = R.string.profile,
         icon = Icons.Default.Person
     )
 
     object Settings : BottomBarItemConfig(
-        route = AppGraph.home.SETTINGS,
+        route = AppGraph.home.TO_SETTINGS,
         title = R.string.settings,
         icon = Icons.Default.Settings
     )

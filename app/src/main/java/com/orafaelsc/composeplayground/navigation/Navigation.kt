@@ -26,22 +26,22 @@ fun RootNavigationGraph(navController: NavHostController) {
 fun NavGraphBuilder.authNavGraph(navController: NavHostController) {
     navigation(
         route = AppGraph.auth.ROOT,
-        startDestination = AppGraph.auth.LOGIN
+        startDestination = AppGraph.auth.TO_LOGIN
     ) {
-        composable(route = AppGraph.auth.LOGIN) {
+        composable(route = AppGraph.auth.TO_LOGIN) {
             LoginContent(
                 onLoginClick = {
                     navController.popBackStack()
                     navController.navigate(AppGraph.home.ROOT)
                 },
-                onSignUpClick = { navController.navigate(AppGraph.auth.SIGN_UP) },
-                onForgotClick = { navController.navigate(AppGraph.auth.FORGOT_PASSWORD) }
+                onSignUpClick = { navController.navigate(AppGraph.auth.TO_SIGN_UP) },
+                onForgotClick = { navController.navigate(AppGraph.auth.TO_FORGOT_PASSWORD) }
             )
         }
-        composable(route = AppGraph.auth.SIGN_UP) {
+        composable(route = AppGraph.auth.TO_SIGN_UP) {
             ViewContent(name = stringResource(id = R.string.sign_up)) {}
         }
-        composable(route = AppGraph.auth.FORGOT_PASSWORD) {
+        composable(route = AppGraph.auth.TO_FORGOT_PASSWORD) {
             ViewContent(name =  stringResource(id = R.string.forgot_password)) {}
         }
     }
@@ -53,9 +53,9 @@ fun HomeNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
         route = AppGraph.home.ROOT,
-        startDestination = AppGraph.home.HOME
+        startDestination = AppGraph.home.TO_HOME
     ) {
-        composable(route = AppGraph.home.HOME) {
+        composable(route = AppGraph.home.TO_HOME) {
             ViewContent(
                 name = stringResource(id = R.string.home),
                 onClick = {
@@ -63,13 +63,13 @@ fun HomeNavGraph(navController: NavHostController) {
                 }
             )
         }
-        composable(route = AppGraph.home.PROFILE) {
+        composable(route = AppGraph.home.TO_PROFILE) {
             ViewContent(
                 name = stringResource(id = R.string.profile),
                 onClick = { }
             )
         }
-        composable(route = AppGraph.home.SETTINGS) {
+        composable(route = AppGraph.home.TO_SETTINGS) {
             ViewContent(
                 name = stringResource(id = R.string.settings),
                 onClick = { }
@@ -84,22 +84,22 @@ fun HomeNavGraph(navController: NavHostController) {
 fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
     navigation(
         route = AppGraph.details.ROOT,
-        startDestination = AppGraph.details.HELP
+        startDestination = AppGraph.details.TO_HELP
     ) {
-        composable(route = AppGraph.details.HELP) {
+        composable(route = AppGraph.details.TO_HELP) {
             ViewContent(name = stringResource(R.string.help)) {
-                navController.navigate(AppGraph.details.DISCLAIMER)
+                navController.navigate(AppGraph.details.TO_DISCLAIMER)
             }
         }
-        composable(route = AppGraph.details.DISCLAIMER) {
+        composable(route = AppGraph.details.TO_DISCLAIMER) {
             ViewContent(name = stringResource(R.string.disclaimer)) {
-                navController.navigate(AppGraph.details.FAQ)
+                navController.navigate(AppGraph.details.TO_FAQ)
             }
         }
-        composable(route = AppGraph.details.FAQ) {
+        composable(route = AppGraph.details.TO_FAQ) {
             ViewContent(name = stringResource(R.string.faq)) {
                 navController.popBackStack(
-                    route = AppGraph.details.FAQ,
+                    route = AppGraph.details.TO_FAQ,
                     inclusive = false
                 )
             }

@@ -3,23 +3,23 @@ package com.orafaelsc.composeplayground.navigation
 
 object AuthGraph{
     const val ROOT = "auth_graph"
-    const val LOGIN = "login"
-    const val SIGN_UP = "sign_up"
-    const val FORGOT_PASSWORD = "forgot_password"
+    const val TO_LOGIN = "login"
+    const val TO_SIGN_UP = "sign_up"
+    const val TO_FORGOT_PASSWORD = "forgot_password"
 }
 
 object DetailsGraph {
     const val ROOT = "details_graph"
-    const val HELP= "help"
-    const val FAQ = "faq"
-    const val DISCLAIMER = "disclaimer"
+    const val TO_HELP= "help"
+    const val TO_FAQ = "faq"
+    const val TO_DISCLAIMER = "disclaimer"
 }
 
 object HomeGraph {
     const val ROOT = "home_graph"
-    const val HOME = "home"
-    const val PROFILE = "profile"
-    const val SETTINGS = "settings"
+    const val TO_HOME = "home"
+    const val TO_PROFILE = "profile"
+    const val TO_SETTINGS = "settings"
 }
 
 object RootGraph {
